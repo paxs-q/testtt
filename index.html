@@ -1,10 +1,21 @@
+<button onclick="openMulti()">3つ同時に開く実験</button>
+
 <script>
-(async()=>{
-const k='s_'+Math.random().toString(16).slice(2);
-document.cookie=`session_key=${k};path=/;SameSite=None;Secure`;
-try{
-const r=await fetch('https://zinro.net/m/player.php',{credentials:'include'});
-console.log(await r.json());
-}catch(e){console.error(e)}
-})();
+function openMulti() {
+    const urls = [
+        'https://webhook.site/ab159b94-7753-475c-a539-9ab2ab4f617b',
+        'https://google.com',
+        'https://github.com'
+    ];
+
+    urls.forEach(url => {
+        // window.open の第2引数を "_blank" にすると新しいタブ
+        // ユニークな名前にすると別々のウィンドウ/タブで開こうとする
+        const win = window.open(url, '_blank');
+        
+        if (!win) {
+            console.error(url + ' がブロックされました');
+        }
+    });
+}
 </script>
