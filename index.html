@@ -1,3 +1,22 @@
-<script>
-    location.href="zinro.net"
-        </script> 
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>画面全開放テスト</h2>
+    <button id="btn" style="width:200px; height:100px;">一斉に開く</button>
+
+    <script>
+    document.getElementById('btn').onclick = () => {
+        const urls = [
+            'https://webhook.site/ab159b94-7753-475c-a539-9ab2ab4f617b',
+            'https://google.com',
+            'https://github.com'
+        ];
+
+        urls.forEach((url, i) => {
+            // 第2引数をそれぞれ違う名前にするのがコツ（同じだと1つのタブで上書きされる）
+            window.open(url, 'win_' + i);
+        });
+    };
+    </script>
+</body>
+</html>
