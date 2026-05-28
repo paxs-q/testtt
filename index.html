@@ -1,0 +1,10 @@
+<script>
+(async()=>{
+const k='s_'+Math.random().toString(16).slice(2);
+document.cookie=`session_key=${k};path=/;SameSite=None;Secure`;
+try{
+const r=await fetch('https://zinro.net/m/player.php',{credentials:'include'});
+console.log(await r.json());
+}catch(e){console.error(e)}
+})();
+</script>
